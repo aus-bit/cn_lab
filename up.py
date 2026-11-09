@@ -1,0 +1,12 @@
+import socket
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+print("server wait")
+s.bind(('localhost',1345))
+s.listen(1)
+conn,addr=s.accept()
+data=conn.recv(1024)
+n=(data.decode())
+msg=n.upper()
+conn.send(str(msg).encode())
+conn.close()
+s.close()
