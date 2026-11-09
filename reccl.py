@@ -1,0 +1,11 @@
+import socket
+c=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+n1=int(input("Enter len"))
+c.sendto(str(n1).encode(),('localhost',1235))
+n2=int(input("enter breadth"))
+c.sendto(str(n2).encode(),('localhost',1235))
+a, addr = c.recvfrom(1024)
+print("area",a)
+p, addr = c.recvfrom(1024)
+print("peri",p)
+c.close()
