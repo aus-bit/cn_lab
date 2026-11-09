@@ -16,6 +16,7 @@ print("Packet capturing started...")
 
 try:
     while True:
+        
         packet, addr = s.recvfrom(65565)
 
         ip_header = packet[0:20]
