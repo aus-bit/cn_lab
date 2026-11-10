@@ -1,0 +1,11 @@
+import socket
+s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+n=int(input("enter:"))
+s.sendto(str(n).encode(),('localhost',1243))
+data,addr=s.recvfrom(1024)
+sum=data.decode()
+print("sum",sum)
+data,addr=s.recvfrom(1024)
+avg=data.decode()
+print("avg",avg)
+s.close()
